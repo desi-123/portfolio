@@ -1,38 +1,96 @@
-.App {
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.card-title, h2 {
+  font: 500 1.25rem "Lobster", cursive;
   text-align: center;
+  color: #4747c2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.btn-navbar {
+  background: #4747c2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.position {
+  background: #4747c2;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-date {
+  background: #4747c2;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-img {
+  height: 60px;
+  display: block;
+  border-radius: 50%;
+  padding: 2px;
+}
+.modal-header {
+  background: #4747c2;
+  color: white;
+}
+
+.btn-modal {
+  background: #4747c2;
+}
+.underline {
+  text-decoration-line: underline;
+}
+.row-content {
+  padding: 30px 0;
+  border-bottom:  1 ridge;
+  min-height: 200px;
+}
+
+.jumbotron {
+  margin: 0;
+  padding: 25px;
+  background-color: #4747c2;
+  color: white;
+}
+.particles {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  padding: 10px;
+}
+.fullName {
+  position: absolute;
+  text-align: center;
+  top: 50px;
+  left: 65%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+.gmail {
+  position: absolute;
+  text-align: center;
+  top: 80px;
+  left: 65%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+
+.navbar-dark {
+    background-color: #3046C5;
+}
+
+.portfolio-footer {
+  background-image: linear-gradient(#5637DD, #3046C5, #2f5572);
+  padding: 25px 0;
+}
+
+.progress-bar {
+  width: 100%;
+}
+
+.red {
+  height: 100px;
+  width: 100px;
+  padding: 10px;
 }
