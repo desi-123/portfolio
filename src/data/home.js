@@ -1,4 +1,4 @@
-const HOME = [
+export const HOME = [
             {
                 id: 1,
                 name: "Adama Scince and Technology University",
@@ -40,4 +40,3 @@ const HOME = [
                 description: "This is the store I have been working as a sale associate. I got a lot of experiences such as working as team, communicate with different customers and help them, checkout products, ordering products on computer, scan with scanner the delivered products, checkout products' expiration date and write off."
             },
         ]
-    export default HOME

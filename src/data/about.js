@@ -1,4 +1,4 @@
-const ABOUT = [
+export const ABOUT = [
     {
         id: 1,
         title: "About me",
@@ -11,4 +11,3 @@ const ABOUT = [
     },
 ]
 
-export default ABOUT

@@ -1,16 +1,37 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Home from '../components/HomeComponent'
-import { addHome } from '../redux/ActionCreators'
+import { Loading } from '../components/LoadingComponent';
+import { fetchHome } from '../redux/ActionCreators'
 
 
 class HomePage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
+
+    componentDidMount() {
+        this.props.fetchHome();
     }
     render() {
+        const {isLoading, errMess} = this.props.home
+        if (isLoading) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        if (errMess) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <h4>{errMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        } 
         return (
             <section className="my-5">
                 <div className="container">
@@ -23,10 +44,11 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <div className="container">
-                    <div className="row">               
-                    {this.props.Home.map(item => ( 
+                    <div className="row"> 
+                    {this.props.home.home.map(item => ( 
                         <div className="col-md-5 m-3">
-                        <Home key={item.id} home={item} />
+                        <Home key={item.id} home={item} 
+                        />
                         </div>
                     ))}
                     </div>
@@ -38,12 +60,12 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Home: state.home
+        home: state.home
     }
 }
 
 const mapDispatchToProps = {
-    addHome: (image, description, title, name) => (addHome(image, description, title, name))
+    fetchHome: () =>(fetchHome())
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

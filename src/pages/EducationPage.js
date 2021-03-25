@@ -3,17 +3,39 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import Education from '../components/EducationComponent'
-import { addEducation } from '../redux/ActionCreators';
+import { Loading } from '../components/LoadingComponent';
+import { fetchEducation } from '../redux/ActionCreators';
 
 
 
 class EducationPage extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
+
+    componentDidMount() {
+        this.props.fetchEducation();
     }
+
     render() {
+        const {isLoading, errMess} = this.props.education
+        if (isLoading) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        if (errMess) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <h4>{errMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
         return (
             <section>
                 <div className="row">
@@ -26,49 +48,49 @@ class EducationPage extends Component {
                         <hr />
                     </div>
                 </div>
-                <div className="container my-4">
-                    {this.props.Education.map(item => (
+                <div className="container my-3">
+                    {this.props.education.education.map(item => (
                         <div className="row">
-                            <Education education={item} />
+                            <Education key={item.id} education={item} />
                         </div>
                     ))}
                 </div>
                 <div className="container">
-                <h3><strong>My Skills</strong></h3>
+                <h2><strong>My Skills</strong></h2>
                 <hr/>
-                <h4>HTML 5</h4>
+                <h2>HTML 5</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '100%'}} >
+                    <div className="progress-bar" style={{width: '100%'}} >
                     </div>
                 </div>
                 <hr/>
-                <h4>CSS 3</h4>
+                <h2>CSS 3</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '99%'}} >
+                    <div className="progress-bar" style={{width: '99%'}} >
                     </div>
                 </div>
                 <hr/>
-                <h4>JAVASCRIPT</h4>
+                <h2>JAVASCRIPT</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '98%'}} >
+                    <div className="progress-bar" style={{width: '98%'}} >
                     </div>
                 </div>
                 <hr/>
-                <h4>NODEJS</h4>
+                <h2>NODEJS</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '97%'}} >
+                    <div className="progress-bar" style={{width: '97%'}} >
                     </div>
                 </div>
                 <hr/>
-                <h4>C++</h4>
+                <h2>C++</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '70%'}} >
+                    <div className="progress-bar" style={{width: '70%'}} >
                     </div>
                 </div>
                 <hr/>
-                <h4>PYTHON</h4>
+                <h2>PYTHON</h2>
                 <div className="progress mb-3">
-                    <div className="progress-bar bg-primary" style={{width: '50%'}} >
+                    <div className="progress-bar" style={{width: '50%'}} >
                     </div>
                 </div>
                 </div>
@@ -79,12 +101,12 @@ class EducationPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Education: state.education
+        education: state.education
     }
 }
 
 const mapDispatchToProps = {
-    addEducation: (major, name, school, date, description) => (addEducation(major, name, school, date, description))
+    fetchEducation: () => (fetchEducation())
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EducationPage)

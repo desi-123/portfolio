@@ -1,4 +1,13 @@
 export const ADD_TO_HOME = 'ADD_TO_HOME'
+export const HOME_LOADING  = 'HOME_LOADING'
+export const HOME_FAILED = 'HOME_FAILED'
+
 export const ADD_TO_EDUCATION = 'ADD_TO_EDUCATION'
+export const EDUCATION_LOADING = 'EDUCATION_LOADING'
+export const EDUCATION_FAILED = 'EDUCATION_FAILED'
+
 export const ADD_TO_ABOUT = 'ADD_TO_ABOUT'
+export const ABOUT_LOADING = 'ABOUT_LOADING'
+export const ABOUT_FAILED = 'ABOUT_FAILED'
+
 export const ADD_TO_CONTACT = 'ADD_TO_CONTACT'

@@ -23,6 +23,10 @@ body {
   color: white;
 }
 
+.progress-bar {
+  background: #4747c2;
+}
+
 .logo-img {
   height: 60px;
   display: block;
@@ -93,4 +97,24 @@ body {
   height: 100px;
   width: 100px;
   padding: 10px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: 300ms ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: 300ms ease-in;
 }

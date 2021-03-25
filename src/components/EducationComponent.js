@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
-import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardFooter, CardHeader  } from 'reactstrap';
 class Education extends Component {
     render() {
-        const {major, name, school, date, description } = this.props.education
+        const {major, name, date, description } = this.props.education
         return (
-            <div className="col">
+            <div className="col m-3">
                 <Card>
+                <CardHeader className="card-title">
+                    {name}
+                </CardHeader>
                 <CardBody>
-                <h4>{school}</h4>
-                <h4>{major}</h4>
-                    <CardTitle>{name}</CardTitle>
+                    <CardTitle>{major}</CardTitle>
                     <CardText>{description}</CardText>
-                    <h5>{date}</h5>
                 </CardBody>
+                <CardFooter className="footer-date">
+                    <h6>{date}</h6>
+                </CardFooter>
                 </Card>
             </div>
         )

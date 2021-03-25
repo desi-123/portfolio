@@ -4,15 +4,37 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import About from '../components/AboutComponent';
-import { addAbout } from '../redux/ActionCreators';
+import { fetchAbout } from '../redux/ActionCreators';
+import { Loading } from '../components/LoadingComponent';
 
 class AboutPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
+
+    componentDidMount() {
+        this.props.fetchAbout();
     }
+
     render() {
+        const {isLoading, errMess} = this.props.about
+        if (isLoading) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        if (errMess) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <h4>{errMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
         return (
             <section>
                 <div className="row">
@@ -31,9 +53,9 @@ class AboutPage extends Component {
                 </div>
                 <div className="container">
                     <div className="row row-content align-items-center">
-                        {this.props.About.map(item => (
+                        {this.props.about.about.map(item => (
                             <div className="col-md-7">
-                                <About about={item} />
+                                <About key={item.id} about={item} />
                             </div>
                         ))}
                         </div>
@@ -47,12 +69,12 @@ class AboutPage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        About: state.about
+        about: state.about
     }
 }
 
 const mapDispatchToProps = {
-    addAbout: (image, description, title, name) => (addAbout(image, description, title, name))
+    fetchAbout: () => (fetchAbout())
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AboutPage)

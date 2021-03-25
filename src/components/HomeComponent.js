@@ -1,31 +1,34 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { FadeTransform } from 'react-animation-components';
 import { Card, CardGroup, CardImg, CardText, 
     CardBody, CardTitle, CardFooter, CardHeader } from 'reactstrap';
 
-class Home extends Component {
-
-    render() { 
-        const {image, description, title, position, phone, date, name} = this.props.home
-        return (
+function Home({ home }) {
+    return (
+        <FadeTransform
+        in
+        transformProps={{
+            enterTransform: 'translateX(5px)',
+        }}>
             <CardGroup>
                 <Card>
-                    <CardHeader className="card-title">{name}</CardHeader>
-                        <CardImg src={image} alt="homeImage" className="img-portfolio img-fluid" />
+                    <CardHeader className="card-title">{home.name}</CardHeader>
+                        <CardImg src={home.image} alt="homeImage" className="img-portfolio img-fluid" />
                     <CardBody>
-                        <CardTitle>{title}</CardTitle>
+                        <CardTitle>{home.title}</CardTitle>
                             <CardText>
-                            {description}
+                            {home.description}
                             </CardText>
-                        <CardText className="position">Position: {position}</CardText>
-                        <CardText className="position">Phone: {phone}</CardText>
+                        <CardText className="position">Position: {home.position}</CardText>
+                        <CardText className="position">Phone: {home.phone}</CardText>
                     </CardBody>
                     <CardFooter className="footer-date">
-                        <h6 className="date">Date: {date}</h6>
+                        <h6>Date: {home.date}</h6>
                     </CardFooter>
                 </Card>
             </CardGroup>
-        )
-    }
+        </FadeTransform>
+    )
 }
 
 
