@@ -18,6 +18,6 @@ export const EDUCATION = [
         name: "Nucamp Coding Bootcamp",
         major: "Full Stack Web and Mobile Development",
         date: "2020 - 2021",
-        description: "At Nucamp coding bootcamp, I learnt HTML, CSS, Javascript, Bootstrap, React, React Native, NodeJs, Express MongoDB, and more than 15 workshop projects. This bootcamp gave me the knowledge and skills to build static and dynamic websites and mobile app. I can build a dynamic Front-End by using Javascript Framework, React with a functional programming Javascrip, state managment Redux, React-context. A Back-End developer REST API with Express NodeJS, MongoDB Database. In general, Full stack devloper familiar with programming utilities and languages to build a Client and Server parts. I have built more than five front and full stack projects"
+        description: "At Nucamp coding bootcamp, I learnt HTML, CSS, Javascript, Bootstrap, React, React Native, NodeJs, Express MongoDB, and more than 15 workshop projects. This bootcamp gave me the knowledge and skills to build static and dynamic websites and mobile app. I can build a dynamic Front-End by using Javascript Framework, React with a functional programming Javascrip, state managment Redux, React-context. A Back-End developer REST API with Express NodeJS, MongoDB Database. In general, Full stack developer familiar with programming utilities and languages to build a Client and Server parts. I have built more than five front and full stack projects"
     },
 ]
